@@ -1,0 +1,27 @@
+/* pages/trolley/trolley.wxss */
+.no-product-card{
+  position: relative;
+  height: 500rpx;
+  border-color: #eaeaff;
+  border-radius: 25rpx;
+  border-style:  solid;
+  margin: 52rpx 25rpx;
+  background-color: white; 
+}
+.no-product-image{
+  position: absolute;
+  height: 80rpx;
+  width: 80rpx;
+  left:40%;
+  top: 40% ;
+}
+.no-product-text{
+  position: absolute;
+  left:33%;
+  top:58%;
+}
+.no-product-text2{
+  position: absolute;
+  left:28%;
+  top:68%;
+}

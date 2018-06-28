@@ -1,0 +1,22 @@
+<!--pages/trolley/trolley.wxml-->
+<view wx:if='{{!userInfo}}'>
+  <image class='background' src='/images/bg.png'></image>
+  <view class='user-card'>
+    <image class='user-avatar'></image>
+    <view class='user-info'>
+      <view class='user-loginfo'>未登录</view>
+      <view class='info-btn-login'>点击登录后方便购物</view>
+    </view>
+  </view>
+  <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>
+
+<view wx:if='{{userInfo}}'>
+  <image class='background' src='/images/bg.png'></image>
+  <view class='no-product-card'>
+    <image class='no-product-image' src='/images/trolley.png'></image>
+    <view class='no-product-text'>购物车是空的</view>
+    <view class='no-product-text2'>快添加物品进来吧</view>
+  </view>
+</view>

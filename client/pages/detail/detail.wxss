@@ -1,0 +1,110 @@
+/* pages/details/detail.wxss */
+
+.product-card{
+  background-color: white;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  padding-bottom: 30rpx;
+}
+.product-image{
+  width: 370rpx;
+  height: 370rpx;
+  margin-left: 100rpx;
+
+}
+.product-name{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+  margin: 50rpx 50rpx 0;
+}
+.product-source{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.6;
+  margin-left: 50rpx;
+}
+.product-meta{
+  display: flex;
+  align-items: center;
+  text-align: right;
+  justify-content: flex-end;
+  margin-right: 29rpx;
+}
+.product-money{
+  background-color: yellow;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+}
+.product-price{
+  font-weight: bold;
+  margin: 0 10rpx;
+}
+.product-service-card{
+  margin: 20rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  border-radius: 13rpx;
+  background-color: white;
+  padding: 15rpx;
+}
+.product-service-item{
+  display: flex;
+  margin: 10rpx 0;
+}
+.product-service-symbol{
+  margin: 0 10rpx;
+  color: #fef65b;
+  font-weight: 900;
+}
+.product-service-text{
+  font-size: 35rpx;
+  line-height: 49rpx;
+}
+.reviews-card{
+  margin-top: 30rpx;
+  border-top: solid 1rpx rgba(0, 0, 0, 0.1);
+}
+.reviews-title{
+  margin: 30rpx 10rpx;
+  display: flex;
+  align-items: center;
+}
+.review-title-text{
+  flex-grow: 1;
+  font-weight: bold;
+  font-size: 36rpx;
+  line-height: 51rpx;
+}
+.review-arrow{
+  width: 30rpx;
+  height: 42rpx;
+  margin: 0 10rpx;
+}
+.review-detail{
+  font-size: 35rpx;
+  line-height: 49rpx;
+  margin-left: 20rpx;
+}
+.operation{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left:0;
+}
+.btn-add-trolley, .btn-buy-now{
+  flex: 1;
+  border-radius: 0;
+  font-weight: bold;
+  border: none!important;
+  font-size: 36rpx;
+  line-height: 100rpx;
+}
+.btn-add-trolley{
+  background-color: rgba(245, 224, 105, 0.6);
+}
+.btn-buy-now{
+  background-color: #F5E069;
+}

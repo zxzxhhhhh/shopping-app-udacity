@@ -1,0 +1,47 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+.background{
+  position: absolute;
+  top: 0;
+  width: 750rpx;
+  height: 154rpx;
+}
+.user-card{
+  margin: 50rpx 30rpx;
+  padding: 50rpx 30rpx;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  border-radius: 13rpx;
+}
+.user-avatar{
+  height: 110rpx;
+  width: 110rpx;
+  border-radius: 50%;
+  background-color: yellow;
+  margin:0 20rpx 0 40rpx;
+}
+.user-loginfo{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+}
+.info-btn-login{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.6;
+}
+.unlogin-btn{
+  width: 250rpx;
+  font-size: 35rpx;
+  line-height: 80rpx;
+  background-color: #F5E069;
+  font-weight: bold;
+}

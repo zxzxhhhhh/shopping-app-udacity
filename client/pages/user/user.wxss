@@ -1,0 +1,47 @@
+/* pages/user/user.wxss */
+Page{
+  background-color: rgba(0, 0, 0, 0.02)
+}
+.login-card{
+  position: relative;
+  margin: 50rpx 30rpx;
+  padding-top: 30rpx;
+  background-color: white;
+  border-radius: 13rpx;
+}
+.user-info-login{
+  display: flex;
+  align-items: center;
+}
+.login-name{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+}
+.address{
+  border-top: solid 20rpx rgba(0, 0, 0, 0.02);
+  padding: 30rpx ;
+  display: flex;
+  align-items: center;
+}
+.address-text{
+  font-size: 36rpx;
+  line-height: 48rpx;
+  flex-grow: 1;
+}
+.arrow{
+  height: 30rpx;
+  width: 20rpx;
+}
+.contact{
+  border-top: solid 2rpx rgba(0, 0, 0, 0.1);
+  padding: 30rpx 0;
+  margin: 0 30rpx;
+  display: flex;
+  align-items: center;
+}
+.contact-text{
+  font-size: 36rpx;
+  line-height: 48rpx;
+  flex-grow: 1;
+}

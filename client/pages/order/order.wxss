@@ -1,0 +1,22 @@
+/* pages/order/order.wxss */
+.no-order-card{
+  position: relative;
+  height: 500rpx;
+  border-color: #eaeaff;
+  border-radius: 25rpx;
+  border-style:  solid;
+  margin: 52rpx 25rpx;
+  background-color: white; 
+}
+.no-order-image{
+  position: absolute;
+  height: 80rpx;
+  width: 80rpx;
+  left:40%;
+  top: 40% ;
+}
+.no-order-text{
+  position: absolute;
+  left:33%;
+  top:58%;
+}

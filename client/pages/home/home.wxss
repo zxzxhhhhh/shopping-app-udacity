@@ -1,0 +1,126 @@
+/* pages/home/home.wxss */
+Page{
+  background-color: #eaefff
+}
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  z-index: -1;
+}
+.hot-card{
+  position: relative;
+  height: 326rpx;
+  border-color: #eaeaff;
+  border-radius: 25rpx;
+  border-style:  solid;
+  margin: 52rpx;
+  background-color: white; 
+}
+.hot-name{
+  position: absolute;
+  top: 35rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 50rpx;
+  margin-bottom: 20rpx;
+}
+.hot-name-line{
+  width: 21rpx;
+  height: 34rpx;
+}
+.hot-name-text{
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.8
+}
+.hot-info{
+  position: absolute;
+  bottom: 0;
+  left: 30rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  height: 188rpx;
+  width: 259rpx;
+}
+.hot-image{
+  position: absolute;
+  bottom: 50rpx;
+  right: 10rpx;
+ height: 188rpx;
+  width: 259rpx;
+}
+
+.list-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list-title-line{
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+    width: 21rpx;
+  height: 34rpx;
+}
+.list-title-text{
+  font-size: 30rpx;
+  line-height: 42rpx;
+
+}
+
+.product-row{
+  display: flex;
+  justify-content: space-around; 
+  margin: 0 52rpx 28rpx;
+}
+.product-card{
+  flex: 1;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  border-radius: 13rpx;
+  border-style: solid;
+  border-color: white;
+}
+.product-card:first-child {
+  margin-right: 27rpx;
+}
+.product-image{
+  width: 300rpx;
+  height: 300rpx;
+}
+.product-name{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  margin-left: 10rpx;
+}
+.product-meta{
+  display: flex;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.product-price-symbol{
+  margin-left: 10rpx;
+}
+.product-price{
+  flex-grow: 1;
+  margin-left: 10rpx;
+}
+.product-add{
+  margin-right: 10rpx;
+
+}
+.product-add,.product-price-symbol{
+    background-color: yellow;
+  border-radius: 50%;
+  width: 36rpx;
+  height: 36rpx;
+  text-align: center;
+  line-height: 36rpx;
+  font-weight: 900;
+}
