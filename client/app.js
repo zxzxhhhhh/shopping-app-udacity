@@ -30,7 +30,7 @@ App({
             })
             error && error({})
           }
-          else{
+          else{//已授权->直接登录1）首次登录获取数据2）非首次登录调用request获取数据
             this.data.locationAuthType = AUTHORIZED
             this.doQcloudLogin({success, error})
           }
@@ -88,12 +88,13 @@ App({
     },
 
     getUserData({ success, error }) {
-      if (userInfo) {
-        console.log("data from cache")
+      if (userInfo) {//1）数据从缓存中直接调取
+        console.log("get user data from cache")
         return success && success({
           userInfo
         })
       }
+      //2）数据从网络中下载
       qcloud.request({
         url: config.service.requestUrl,
         //获取用户数据需要验证登录信息
