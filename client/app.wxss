@@ -10,6 +10,7 @@
   top: 0;
   width: 750rpx;
   height: 154rpx;
+  z-index: -1;
 }
 .user-card{
   margin: 50rpx 30rpx;

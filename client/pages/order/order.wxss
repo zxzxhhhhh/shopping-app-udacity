@@ -1,4 +1,7 @@
 /* pages/order/order.wxss */
+Page{
+  background-color: rgba(0, 0, 0, 0.02)
+}
 .no-order-card{
   position: relative;
   height: 500rpx;
@@ -19,4 +22,86 @@
   position: absolute;
   left:33%;
   top:58%;
+}
+.order-title{
+  display: flex;
+  align-items: center;
+  margin: 60rpx 30rpx;
+}
+.order-title-image{
+  width: 30rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.order-name{
+  font-size: 40rpx;
+  line-height: 52rpx;
+}
+
+
+/* 保持订单之间的间距*/
+.order-item{
+  margin: 30rpx 20rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  background-color: white;
+  border-radius: 13rpx;
+}
+.product-item{
+  display: flex;
+  border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+  margin: 10rpx;
+}
+
+.product-image{
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx;
+}
+.product-detail{
+  flex-grow: 1;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.product-name{
+  font-size: 35rpx;
+  line-height: 48rpx;
+}
+.product-price-item{
+  display: flex;
+  align-items: center;
+}
+.product-price-symbol{
+  font-weight: bold;
+}
+.product-price{
+  margin-left: 10rpx;
+  font-weight: 600;
+  font-size: 35rpx;
+  line-height: 48rpx;
+  }
+.product-item:last-child{
+   border-bottom: none;
+}
+.product-num-review{
+  flex-shrink: 0;
+  margin-left: 59rpx;
+  padding-top: 34rpx;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.product-review{
+  font-size: 28rpx;
+  width: 130rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  background: #F5E069;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.product-num{
+  margin-top: 49rpx;
+  line-height: 40rpx;
+  font-weight: bold;
+  text-align: right;
 }

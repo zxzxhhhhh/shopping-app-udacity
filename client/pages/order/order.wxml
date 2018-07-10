@@ -11,10 +11,46 @@
   <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
   <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
 </view>
+
 <view wx:if='{{userInfo}}'>
-  <image class='background' src='/images/bg.png'></image>
-  <view class='no-order-card'>
-    <image class='no-order-image' src='/images/order.png'></image>
-    <view class='no-order-text'>暂时没有订单</view>
+  <view wx:if='{{orderList.length == 0}}'>
+    <image class='background' src='/images/bg.png'></image>
+    <view class='no-order-card'>
+      <image class='no-order-image' src='/images/order.png'></image>
+      <view class='no-order-text'>暂时没有订单</view>
+    </view>
   </view>
+
+  <view wx:if='{{orderList.length != 0}}'>
+    <image class='background' src='/images/bg.png'></image>
+    <view class='order-title'>
+      <image class='order-title-image' src='/images/line-black.png'></image>
+      <view class='order-name'>已完成</view>
+    </view>
+
+    <view class='order-item' wx:for='{{orderList}}' wx:for-item='order' wx:for-index='orderID' wx:key='id'>
+
+      <view wx:for='{{order.list}}' class='product-item'>
+          <image class='product-image' src='{{item.image}}'></image>
+
+          <view class='product-detail'>
+            <view class='product-name'>{{item.name}}</view>
+            <view class='product-price-item'>
+              <view class='product-price-symbol'>¥</view>
+              <view class='product-price'>{{item.price}}</view>
+            </view>
+            
+          </view>
+
+          <view class='product-num-review'>
+            <button class='product-review'>评价</button>
+            <view class='product-num'>x{{item.count}}</view>
+          </view>
+      </view>
+    </view>
+
+  </view>
+
+
+
 </view>
