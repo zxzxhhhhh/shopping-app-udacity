@@ -83,6 +83,36 @@ Page({
       }
     })
  },
+
+ addToTrolley(){
+   qcloud.request({
+     url: config.service.addToTrolley,
+     login: true,
+     method: 'PUT',
+     data:  this.data.product,
+     success: result => {
+       console.log(result.data)
+       let data = result.data
+       if (!data.code) {
+         wx.showToast({
+           title: '添加购物车成功',
+         })
+       } else {
+         wx.showToast({
+           icon: 'none',
+           title: '添加购物车失败',
+         })
+       }
+     },
+     fail: (result) => {
+       console.log(result)
+       wx.showToast({
+         icon: 'none',
+         title: '添加购物车失败',
+       })
+     }
+   })
+ },
   /**
    * 生命周期函数--监听页面加载
    */

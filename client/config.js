@@ -25,7 +25,8 @@ var config = {
         productList: `${host}/weapp/product`,
         productDetail: `${host}/weapp/product/`,
         addOrder: `${host}/weapp/order/`,
-        orderList: `${host}/weapp/order`
+        orderList: `${host}/weapp/order`,
+        addToTrolley: `${host}/weapp/trolley`
 
     }
 };
