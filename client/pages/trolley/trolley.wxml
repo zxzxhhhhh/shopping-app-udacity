@@ -12,7 +12,55 @@
   <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
 </view>
 
-<view wx:if='{{userInfo}}'>
+<view wx:elif='{{trolleyList.length>0}}'>
+  <image class='background' src='/images/bg.png'></image>
+  <view class='trolley-top'>
+    <view class='trolley-total'>
+      <view class='trolley-check-wrapper white {{isTrolleyTotalCheck? "check":""}}'><!-- 独立出来减少代码量 后面每个商品前也需要这个圆圈-->
+        <image class='trolley-check-img' src='../../images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
+      </view>
+      <view class='trolley-check-text'>全选</view>
+    </view>
+    <view class='trolley-edit'>{{isTrolleyEdit?'完成':'编辑'}}</view>
+  </view>
+
+  <scroll-view class='product-list'>
+    <view class='product-card' wx:for='{{trolleyList}}' wx:key='id'>
+        <view class='trolley-check-wrapper white {{trolleyCheckMap[index]? "check":""}}'>
+          <image class='trolley-check-img' src='../../images/check.png' wx:if='{{trolleyCheckMap[index]}}'></image>
+        </view>
+        <image class='product-img' src='{{item.image}}'></image>
+        <view class='product-info'>
+          <view class='product-name'>{{item.name}}</view>
+          <view class='product-price'>¥ {{item.price}}</view>
+          <view class='product-count-edit' wx:if='{{isTrolleyEdit}}'>
+            <view class='count-minus'>-</view>
+            <view class='count-now'>{{item.count}}</view>
+            <view class='count-add'>+</view>
+          </view>
+          <view class='product-count' wx:else>x {{item.count}}</view>
+        </view>
+    
+    </view>
+  
+  </scroll-view>
+
+  <view class='trolley-account'>
+    <view class='trolley-total'>
+      <view class='trolley-check-wrapper white {{isTrolleyTotalCheck? "check":""}}'>
+        <image class='trolley-check-img' src='../../images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
+      </view>
+      <view class='trolley-check-text'>全选</view>
+    </view>
+    <view  class='trolley-account-text'>
+      <view>总价：</view>
+      <view class='trolley-account-now'>¥ {{trolleyAccount}}</view>
+    </view>
+    <button class='pay-btn {{trolleyAccount? "canpay":""}}'>结算</button>
+  </view>
+</view>
+
+<view wx:else>
   <image class='background' src='/images/bg.png'></image>
   <view class='no-product-card'>
     <image class='no-product-image' src='/images/trolley.png'></image>
