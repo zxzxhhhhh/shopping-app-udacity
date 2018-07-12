@@ -37,6 +37,54 @@ Page({
     });
     
   },
+
+  addToTrolley(event){
+    let idx = event.currentTarget.dataset.idx;
+    //console.log(idx)
+    let productList = this.data.productList
+    let product
+    //循环遍历 找到id对应的product 然后传入 api
+    for (let i = 0; i < productList.length; i++)
+      if (productList[i].id == idx){
+        product = productList[i]
+        break;
+      }
+    //console.log(product.id)
+
+    wx.showLoading({
+      title: '添加至购物车中。。。。',
+    })
+    qcloud.request({
+      url: config.service.addToTrolley,
+      login: true,
+      method: 'PUT',
+      data: product,
+      success: result => {
+        wx.hideLoading()
+        console.log(result.data)
+        let data = result.data
+        if (!data.code) {
+          wx.showToast({
+            title: '添加购物车成功',
+          })
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '添加购物车失败',
+          })
+        }
+      },
+      fail: (result) => {
+        wx.hideLoading()
+        console.log(result)
+        wx.showToast({
+          icon: 'none',
+          title: '添加购物车失败',
+        })
+      }
+    })
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,52 +93,4 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

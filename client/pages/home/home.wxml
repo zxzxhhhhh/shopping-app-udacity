@@ -24,7 +24,7 @@
     <view class='product-meta'>
       <view class='product-price-symbol'>￥</view>
       <view class='product-price'>{{pitem.price}}</view>
-      <view class='product-add'>+</view>
+      <view class='product-add' data-idx='{{pitem.id}}' catchtap='addToTrolley'>+</view>
     </view>
   </navigator>
 </view>
