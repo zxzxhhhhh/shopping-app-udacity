@@ -50,40 +50,40 @@ Page({
         break;
       }
     //console.log(product.id)
-
-    wx.showLoading({
-      title: '添加至购物车中。。。。',
-    })
-    qcloud.request({
-      url: config.service.addToTrolley,
-      login: true,
-      method: 'PUT',
-      data: product,
-      success: result => {
-        wx.hideLoading()
-        console.log(result.data)
-        let data = result.data
-        if (!data.code) {
-          wx.showToast({
-            title: '添加购物车成功',
-          })
-        } else {
-          wx.showToast({
-            icon: 'none',
-            title: '添加购物车失败',
-          })
-        }
-      },
-      fail: (result) => {
-        wx.hideLoading()
-        console.log(result)
-        wx.showToast({
-          icon: 'none',
-          title: '添加购物车失败',
+    if(product){
+        wx.showLoading({
+          title: '添加至购物车中。。。。',
         })
-      }
-    })
-
+        qcloud.request({
+          url: config.service.addToTrolley,
+          login: true,
+          method: 'PUT',
+          data: product,
+          success: result => {
+            wx.hideLoading()
+            console.log(result.data)
+            let data = result.data
+            if (!data.code) {
+              wx.showToast({
+                title: '添加购物车成功',
+              })
+            } else {
+              wx.showToast({
+                icon: 'none',
+                title: '添加购物车失败',
+              })
+            }
+          },
+          fail: (result) => {
+            wx.hideLoading()
+            console.log(result)
+            wx.showToast({
+              icon: 'none',
+              title: '添加购物车失败',
+            })
+          }
+        })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
