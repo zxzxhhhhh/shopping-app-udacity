@@ -40,17 +40,17 @@ Page({
 
   addToTrolley(event){
     let idx = event.currentTarget.dataset.idx;
-    //console.log(idx)
-    let productList = this.data.productList
-    let product
-    //循环遍历 找到id对应的product 然后传入 api
-    for (let i = 0; i < productList.length; i++)
-      if (productList[i].id == idx){
-        product = productList[i]
-        break;
-      }
+    // //console.log(idx)
+    // let productList = this.data.productList
+    // let product
+    // //循环遍历 找到id对应的product 然后传入 api
+    // for (let i = 0; i < productList.length; i++)
+    //   if (productList[i].id == idx){
+    //     product = productList[i]
+    //     break;
+    //   }
     //console.log(product.id)
-    if(product){
+    if(idx){
         wx.showLoading({
           title: '添加至购物车中。。。。',
         })
@@ -58,7 +58,7 @@ Page({
           url: config.service.addToTrolley,
           login: true,
           method: 'PUT',
-          data: product,
+          data: {id:idx},
           success: result => {
             wx.hideLoading()
             console.log(result.data)
