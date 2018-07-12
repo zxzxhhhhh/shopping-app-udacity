@@ -17,6 +17,11 @@ module.exports = {
     // 不存在该商品，插入项目，数量为1
       await DB.query("insert into trolley_user(id, user, count) values (?, ?, ?)", [product.id, user, 1])
     }
+  },
+
+  list: async ctx => {
+    let user = ctx.state.$wxInfo.userinfo.openId
+    ctx.state.data = await DB.query('SELECT * FROM trolley_user LEFT JOIN product ON trolley_user.id = product.id WHERE trolley_user.user = ?', [user])
   }
 
 

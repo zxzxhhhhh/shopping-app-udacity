@@ -40,7 +40,9 @@ router.get('/product/:id', controllers.product.detail)
 router.post('/order', validationMiddleware , controllers.order.add)
 
 router.get('/order', validationMiddleware, controllers.order.list)
-
+// add to trolley at page 'detail' and 'home'
 router.put('/trolley', validationMiddleware, controllers.trolley.add)
+//get trolleyList at page 'trolley'
+router.get('/trolley', validationMiddleware, controllers.trolley.list)
 
 module.exports = router
