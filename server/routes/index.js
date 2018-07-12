@@ -41,4 +41,6 @@ router.post('/order', validationMiddleware , controllers.order.add)
 
 router.get('/order', validationMiddleware, controllers.order.list)
 
+router.post('/trolley', validationMiddleware, controllers.trolley.add)
+
 module.exports = router
