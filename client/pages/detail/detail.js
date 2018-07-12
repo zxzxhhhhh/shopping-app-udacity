@@ -48,7 +48,9 @@ Page({
     let product = Object.assign({
       count: 1
     }, this.data.product)
-
+    wx.showLoading({
+      title: '商品购买中。。。',
+    })
     qcloud.request({
       url: config.service.addOrder,
       login: true,
@@ -85,12 +87,16 @@ Page({
  },
 
  addToTrolley(){
+   wx.showLoading({
+     title: '添加至购物车中。。。。',
+   })
    qcloud.request({
      url: config.service.addToTrolley,
      login: true,
      method: 'PUT',
      data:  this.data.product,
      success: result => {
+       wx.hideLoading()
        console.log(result.data)
        let data = result.data
        if (!data.code) {
@@ -105,6 +111,7 @@ Page({
        }
      },
      fail: (result) => {
+       wx.hideLoading()
        console.log(result)
        wx.showToast({
          icon: 'none',
