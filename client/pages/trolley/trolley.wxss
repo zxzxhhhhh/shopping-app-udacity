@@ -49,6 +49,9 @@
   background: #ECECEE;
   flex-shrink: 0;
 }
+.trolley-check-wrapper.grey{
+  background: #ECECEE;
+}
 .trolley-check-wrapper.white{
   background: #FFFFFF;
 }

@@ -15,7 +15,7 @@
 <view wx:elif='{{trolleyList.length>0}}'>
   <image class='background' src='/images/bg.png'></image>
   <view class='trolley-top'>
-    <view class='trolley-total'>
+    <view class='trolley-total' bindtap='onTapCheckTotal'>
       <view class='trolley-check-wrapper white {{isTrolleyTotalCheck? "check":""}}'><!-- 独立出来减少代码量 后面每个商品前也需要这个圆圈-->
         <image class='trolley-check-img' src='../../images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
       </view>
@@ -26,8 +26,8 @@
 
   <scroll-view class='product-list' scroll-y scroll-with-animation enable-back-to-top>
     <view class='product-card' wx:for='{{trolleyList}}' wx:key='id'>
-        <view class='trolley-check-wrapper white {{trolleyCheckMap[index]? "check":""}}'>
-          <image class='trolley-check-img' src='../../images/check.png' wx:if='{{trolleyCheckMap[index]}}'></image>
+        <view class='trolley-check-wrapper grey {{trolleyCheckMap[item.id]? "check":""}}' data-id='{{item.id}}' bindtap='onTapCheckSingle'>
+          <image class='trolley-check-img' src='../../images/check.png' wx:if='{{trolleyCheckMap[item.id]}}'></image>
         </view>
         <image class='product-img' src='{{item.image}}'></image>
         <view class='product-info'>
@@ -42,12 +42,11 @@
         </view>
     
     </view>
-  
   </scroll-view>
 
   <view class='trolley-account'>
-    <view class='trolley-total'>
-      <view class='trolley-check-wrapper white {{isTrolleyTotalCheck? "check":""}}'>
+    <view class='trolley-total'  bindtap='onTapCheckTotal'>
+      <view class='trolley-check-wrapper grey {{isTrolleyTotalCheck? "check":""}}'>
         <image class='trolley-check-img' src='../../images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
       </view>
       <view class='trolley-check-text'>全选</view>
