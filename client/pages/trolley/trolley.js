@@ -81,11 +81,15 @@ Page({
   // 购物车编辑状态
   onTapTrolleyEdit(){
     let isTrolleyEdit = this.data.isTrolleyEdit
-    isTrolleyEdit = !isTrolleyEdit
 
-    this.setData({
-      isTrolleyEdit
-    })
+    //  顺序很重要 跟下面语句顺服要是反了 功能就不同乐
+    if (isTrolleyEdit)
+      this.updateTrolleyList()
+   
+      this.setData({
+        isTrolleyEdit: !isTrolleyEdit
+      })
+
   },
 
   onTapAdjust(event){
@@ -164,6 +168,41 @@ Page({
       }
     });
 
+  },
+  //编辑完购物车后更新数据库数据
+  updateTrolleyList(){
+    wx.showLoading({
+      title: '购物车数据加载中',
+    })
+    qcloud.request({
+      url: config.service.updateTrolleyList,
+      login: true,
+      method: 'POST',
+      data:{ list: this.data.trolleyList},
+      success: (result) => {
+        wx.hideLoading()
+        if (!result.data.code) {
+          wx.showToast({
+            title: '更新购物车成功',
+          })
+        }
+        else {
+          wx.showToast({
+            icon: 'none',
+            title: '更新购物车失败',
+          })
+        }
+
+      },
+      fail: result => {
+        wx.hideLoading()
+        wx.showToast({
+          icon: 'none',
+          title: '更新购物车失败',
+        })
+        console.log('error!');
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面加载
