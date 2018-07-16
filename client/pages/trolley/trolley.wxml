@@ -21,7 +21,7 @@
       </view>
       <view class='trolley-check-text'>全选</view>
     </view>
-    <view class='trolley-edit'>{{isTrolleyEdit?'完成':'编辑'}}</view>
+    <view class='trolley-edit' bindtap='onTapTrolleyEdit'>{{isTrolleyEdit?'完成':'编辑'}}</view>
   </view>
 
   <scroll-view class='product-list' scroll-y scroll-with-animation enable-back-to-top>
@@ -34,9 +34,9 @@
           <view class='product-name'>{{item.name}}</view>
           <view class='product-price'>¥ {{item.price}}</view>
           <view class='product-count-edit' wx:if='{{isTrolleyEdit}}'>
-            <view class='count-minus'>-</view>
+            <view class='count-minus' bindtap='onTapAdjust' data-id='{{item.id}}' data-type='minus'>-</view>
             <view class='count-now'>{{item.count}}</view>
-            <view class='count-add'>+</view>
+            <view class='count-add' bindtap='onTapAdjust' data-id='{{item.id}}'  data-type='add'>+</view>
           </view>
           <view class='product-count' wx:else>x {{item.count}}</view>
         </view>

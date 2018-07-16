@@ -77,6 +77,61 @@ Page({
       trolleyAccount
     })
   },
+
+  // 购物车编辑状态
+  onTapTrolleyEdit(){
+    let isTrolleyEdit = this.data.isTrolleyEdit
+    isTrolleyEdit = !isTrolleyEdit
+
+    this.setData({
+      isTrolleyEdit
+    })
+  },
+
+  onTapAdjust(event){
+    let dataset = event.currentTarget.dataset
+    let adjustType = dataset.type
+    let productId = dataset.id
+
+    let trolleyCheckMap = this.data.trolleyCheckMap
+    let trolleyList = this.data.trolleyList
+
+    let product
+    let index
+
+    for (index = 0; index < trolleyList.length; index++) {
+      if (trolleyList[index].id == productId){
+        product = trolleyList[index]
+        break
+      }
+    }
+
+    if (product)
+      if (adjustType == 'add'){
+        product.count++
+      }
+      else if (adjustType == 'minus'){
+        if (product.count <= 1) {
+          // 商品数量不超过1，点击减号相当于删除
+          delete trolleyCheckMap[productId]
+          trolleyList.splice(index, 1)
+        }else{
+          product.count--
+        }
+      }
+
+    // 调整结算总价
+    let trolleyAccount = this.computeTrolleyAccount(trolleyCheckMap, trolleyList)
+
+    this.setData({
+      trolleyAccount,
+      trolleyList,
+      trolleyCheckMap
+      
+    })
+
+  },
+
   getTrolleyList(){
 
     wx.showLoading({
