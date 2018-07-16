@@ -24,13 +24,21 @@ Page({
     isTrolleyEdit: false, // 购物车是否处于编辑状态
     isTrolleyTotalCheck: false, // 购物车中商品是否全选
   },
-
+  //计算总价
+  computeTrolleyAccount(trolleyCheckMap, trolleyList){
+    let trolleyAccount = 0
+    trolleyList.forEach(product=>{
+      trolleyAccount = (trolleyCheckMap[product.id]) ? trolleyAccount + product.price * product.count : trolleyAccount
+    })
+    return trolleyAccount
+  },
   // 点击check 单个 相应状态改变
   onTapCheckSingle(event){
     let id = event.currentTarget.dataset.id
     let trolleyCheckMap = this.data.trolleyCheckMap
     let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
     let trolleyList = this.data.trolleyList
+    let trolleyAccount = this.data.trolleyAccount
     // 此句要放在整个判断数量之前
     trolleyCheckMap[id] = !trolleyCheckMap[id]
 
@@ -44,12 +52,11 @@ Page({
 
     isTrolleyTotalCheck = (numCheckedProduct === numTotalProduct)? true:false
  
-
-    
-    
+    trolleyAccount = this.computeTrolleyAccount(trolleyCheckMap, trolleyList )
     this.setData({
       trolleyCheckMap, 
-      isTrolleyTotalCheck
+      isTrolleyTotalCheck,
+      trolleyAccount
     })
   },
 
@@ -57,17 +64,18 @@ Page({
     let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
     let trolleyCheckMap = this.data.trolleyCheckMap
     let trolleyList = this.data.trolleyList
-
+    let trolleyAccount = this.data.trolleyAccount
     isTrolleyTotalCheck = !isTrolleyTotalCheck
 
     trolleyList.forEach(product=>{
       trolleyCheckMap[product.id] = isTrolleyTotalCheck
     })
+    trolleyAccount = this.computeTrolleyAccount(trolleyCheckMap, trolleyList)
     this.setData({
       trolleyCheckMap,
-      isTrolleyTotalCheck
+      isTrolleyTotalCheck,
+      trolleyAccount
     })
-
   },
   getTrolleyList(){
 
