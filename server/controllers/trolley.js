@@ -22,6 +22,31 @@ module.exports = {
   list: async ctx => {
     let user = ctx.state.$wxInfo.userinfo.openId
     ctx.state.data = await DB.query('SELECT * FROM trolley_user LEFT JOIN product ON trolley_user.id = product.id WHERE trolley_user.user = ?', [user])
+  },
+
+  update: async ctx => {
+    let user = ctx.state.$wxInfo.userinfo.openId
+    // list need to be updated
+    let productList = ctx.request.body.list || []
+
+    await DB.query('delete from trolley_user where trolley_user.user = ?', [user])
+
+    let sql = 'insert into trolley_user(id, count, user) values'
+    let query = []
+    let param = []
+
+    productList.forEach(product=>{
+
+      query.push('(?, ?, ?)')
+
+      param.push(product.id)
+      param.push(product.count || 1)
+      param.push(product.user)
+    })
+    await DB.query(sql + query.join(','), param)
+
+    ctx.state.data = {}
+
   }
 
 

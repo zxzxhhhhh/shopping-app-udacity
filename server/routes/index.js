@@ -44,5 +44,6 @@ router.get('/order', validationMiddleware, controllers.order.list)
 router.put('/trolley', validationMiddleware, controllers.trolley.add)
 //get trolleyList at page 'trolley'
 router.get('/trolley', validationMiddleware, controllers.trolley.list)
-
+// 更新购物车商品列表
+router.post('/trolley', validationMiddleware, controllers.trolley.update)
 module.exports = router
