@@ -55,7 +55,7 @@
       <view>总价：</view>
       <view class='trolley-account-now'>¥ {{trolleyAccount}}</view>
     </view>
-    <button class='pay-btn {{trolleyAccount? "canpay":""}}'>结算</button>
+    <button class='pay-btn {{trolleyAccount? "canpay":""}}' bindtap='onTapBuy'>结算</button>
   </view>
 </view>
 
