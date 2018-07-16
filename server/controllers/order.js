@@ -4,12 +4,18 @@ module.exports = {
     let user = ctx.state.$wxInfo.userinfo.openId
 //在后续写客户端逻辑的时候我们会把要购买的商品列表存放在 list 变量中进行传输，因此这里我们读取了 body 下的 list。
     let productList = ctx.request.body.list || []
+    // !! : undefined ==> false
+    let isInstantBuy = !!ctx.request.body.isInstantBuy
     //插入 user字段 order_user 的ID自增加
     let order = await DB.query("insert into order_user (user) values (?)", [user])
     // 通过返回的order获取自增加的ID
     let orderId = order.insertId
 
     let sql = 'INSERT INTO order_product (order_id, product_id, count) VALUES '
+
+    // 从购物车删除时所需要的数据和参数
+    let needToDelQuery = []
+    let needToDelIds = []
 
     let query = []
     let param = []
@@ -19,9 +25,17 @@ module.exports = {
       param.push(orderId)
       param.push(product.id)
       param.push(product.count || 1)
+
+      needToDelQuery.push('?')
+      needToDelIds.push(product.id)
     })
 
     await DB.query(sql + query.join(', '), param)
+
+    if (!isInstantBuy) {
+      // 非立即购买，购物车旧数据全部删除，此处本应使用事务实现，此处简化了
+      await DB.query('DELETE FROM trolley_user WHERE trolley_user.id IN (' + needToDelQuery.join(', ') + ') AND trolley_user.user = ?', [...needToDelIds, user])
+    }
 
   },
   /**

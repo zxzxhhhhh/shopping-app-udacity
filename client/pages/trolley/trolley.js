@@ -34,6 +34,7 @@ Page({
   },
   // 点击check 单个 相应状态改变
   onTapCheckSingle(event){
+    
     let id = event.currentTarget.dataset.id
     let trolleyCheckMap = this.data.trolleyCheckMap
     let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
@@ -41,7 +42,7 @@ Page({
     let trolleyAccount = this.data.trolleyAccount
     // 此句要放在整个判断数量之前
     trolleyCheckMap[id] = !trolleyCheckMap[id]
-
+    
     //总共商品数量
     let numTotalProduct = trolleyList.length
     //checkmap中 true的数量
@@ -51,7 +52,7 @@ Page({
     })
 
     isTrolleyTotalCheck = (numCheckedProduct === numTotalProduct)? true:false
- 
+    console.log(trolleyList, numCheckedProduct)
     trolleyAccount = this.computeTrolleyAccount(trolleyCheckMap, trolleyList )
     this.setData({
       trolleyCheckMap, 
@@ -86,9 +87,9 @@ Page({
     if (isTrolleyEdit)
       this.updateTrolleyList()
    
-      this.setData({
-        isTrolleyEdit: !isTrolleyEdit
-      })
+    this.setData({
+      isTrolleyEdit: !isTrolleyEdit
+    })
 
   },
 
@@ -160,8 +161,13 @@ Page({
           wx.showToast({
             title: '结算成功',
           })
-
-          this.getTrolley()
+          //在数据库删除了结算的产品，需要重新获取
+          this.getTrolleyList()
+          //此处需要同时更新trolleyCheckMap
+          needToPayProductList.forEach((product)=>{
+            delete trolleyCheckMap[product.id]
+          })
+          
         } else {
           wx.showToast({
             icon: 'none',
@@ -179,7 +185,7 @@ Page({
       }
     })
   },
-  
+
   getTrolleyList(){
 
     wx.showLoading({
