@@ -43,7 +43,7 @@
           </view>
 
           <view class='product-num-review'>
-            <button class='product-review'>评价</button>
+            <navigator class='product-review' url='../add-comment/add-comment?id={{item.product_id}}&image={{item.image}}&name={{item.name}}&price={{item.price}}'>评价</navigator>
             <view class='product-num'>x{{item.count}}</view>
           </view>
       </view>
