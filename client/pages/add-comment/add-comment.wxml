@@ -10,4 +10,4 @@
   <textarea class='comment-ipt' placeholder-class='comment-placeholder' placeholder='请填写你的评价' auto-focus maxlength='255' bindinput='onInput'></textarea>
 </view>
 
-<button class="comment-btn {{!commentValue ? 'dis' : ''}}">提交评价</button>
+<button class="comment-btn {{!commentValue ? 'dis' : ''}}" bindtap='addComment'>提交评价</button>
