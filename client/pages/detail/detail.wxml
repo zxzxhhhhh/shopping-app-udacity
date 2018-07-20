@@ -20,7 +20,7 @@
   </view>
   
   <view class='reviews-card'>
-    <view class='reviews-title'>
+    <view class='reviews-title' bindtap='onCommentEntry'>
       <view class='review-title-text'>已买评价</view>
       <view class='review-nums'>1条</view>
       <image class='review-arrow' src='/images/grey-arrow.png'></image>

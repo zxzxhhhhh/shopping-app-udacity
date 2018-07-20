@@ -7,9 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    product: {
-    },
+    product: {},
+    hasComment : true
   },
+
+  // 评论页面入口函数
+  onCommentEntry(){
+    if(this.data.hasComment)
+    {
+      let product = this.data.product
+      wx.navigateTo({
+        url: `/pages/comment/comment?id=${product.id}&price=${product.price}&name=${product.name}&image=${product.image}`,
+      })
+    }
+  },
+  
   getProduct(productID) {
     wx.showLoading({
       title: '商品数据加载中',
