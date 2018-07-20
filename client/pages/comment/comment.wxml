@@ -17,7 +17,7 @@
       <view class='content'>{{item.content}}</view>
     </view>
 
-    <view class='create-time'>{{item.create_time}}</view>
+    <view class='create-time'>{{item.createTime}}</view>
   
   </view>
 

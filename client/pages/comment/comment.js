@@ -1,6 +1,7 @@
 // pages/comment/comment.js
 const config = require('../../config.js')
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js');
+const _ = require('../../utils/util.js')
 Page({
 
   /**
@@ -25,8 +26,13 @@ Page({
       success: (result) => {
         wx.hideLoading()
         if (!result.data.code) {
+          
           this.setData({
-            comments: result.data.data
+            comments: result.data.data.map(item=>{
+                let itemDate = new Date(item.create_time)
+                item.createTime = _.formatTime(itemDate)
+                return item
+            })
           })
         }
         else {
