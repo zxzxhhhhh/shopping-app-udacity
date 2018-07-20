@@ -30,11 +30,11 @@ const CONF = {
          * 地区简称
          * @查看 https://cloud.tencent.com/document/product/436/6224
          */
-        region: 'ap-guangzhou',
+      region: 'ap-shanghai',
         // Bucket 名称
-        fileBucket: 'qcloudtest',
+      fileBucket: 'comments',
         // 文件夹
-        uploadFolder: ''
+      uploadFolder: ''
     },
 
     // 微信登录态有效期

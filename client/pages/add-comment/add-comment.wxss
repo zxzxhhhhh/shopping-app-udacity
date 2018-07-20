@@ -23,6 +23,7 @@ Page{
 }
 
 .comment-cnt {
+  position: relative;
   margin: 29rpx 27rpx 0;
   padding-bottom: 26rpx;
   background: #FFFFFF;
@@ -41,7 +42,28 @@ Page{
 .comment-placeholder {
   color: rgba(29, 29, 38, 0.4);
 }
+.uploadImage{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  bottom: 10rpx;
+  left: 20rpx;
+}
 
+.preview-cnt {
+  display: flex;
+  margin-top: 29rpx;
+  margin-left: 29rpx;
+  justify-content: center;
+}
+
+.preview-image {
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 5rpx;
+}
 .comment-btn {
   margin: 34rpx auto;
   width: 250rpx;
