@@ -8,12 +8,11 @@ Page({
    */
   data: {
     product: {},
-    hasComment : true
   },
 
   // 评论页面入口函数
   onCommentEntry(){
-    if(this.data.hasComment)
+    if(this.data.product.commentCount>0)
     {
       let product = this.data.product
       wx.navigateTo({
@@ -49,7 +48,7 @@ Page({
           wx.navigateBack(),
           2000
         })
-        console.log('error!');
+        console.log('error!' + result);
       }
     });
 

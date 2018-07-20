@@ -22,10 +22,10 @@
   <view class='reviews-card'>
     <view class='reviews-title' bindtap='onCommentEntry'>
       <view class='review-title-text'>已买评价</view>
-      <view class='review-nums'>1条</view>
+      <view class='review-nums'>{{product.commentCount}}条</view>
       <image class='review-arrow' src='/images/grey-arrow.png'></image>
     </view>
-    <view class='review-detail'>"test"</view>
+    <view class='review-detail'>{{product.firstComment.content}}</view>
   </view>
 </view>
 
