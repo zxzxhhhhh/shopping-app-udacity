@@ -7,7 +7,7 @@
   </view>
 </view>
 
-<view class='comment-title'>{{count}}条评价</view>
+<view class='comment-title'>{{comments.length}}条评价</view>
 
 <view class='comments' wx:for='{{comments}}' wx:key='id'>
   <view class='comment-card'>

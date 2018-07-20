@@ -6,7 +6,6 @@ Page({
    */
   data: {
     product: {},
-    count:2,
     comments:[
       {
         username: "zx1",
