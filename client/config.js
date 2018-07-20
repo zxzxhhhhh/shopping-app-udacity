@@ -29,7 +29,8 @@ var config = {
         addToTrolley: `${host}/weapp/trolley`,
         trolleyList: `${host}/weapp/trolley`,
         updateTrolleyList: `${host}/weapp/trolley`,
-        addComment: `${host}/weapp/comment`
+        addComment: `${host}/weapp/comment`,
+        comment: `${host}/weapp/comment`
 
     }
 };

@@ -9,7 +9,7 @@
 
 <view class='comment-title'>{{comments.length}}条评价</view>
 
-<view class='comments' wx:for='{{comments}}' wx:key='id'>
+<view class='comments' wx:for='{{comments}}' wx:key='id' wx:if='{{comments.length>0}}'>
   <view class='comment-card'>
     <image class='avatar' src='{{item.avatar}}'></image>
     <view class='comment-detail'>
