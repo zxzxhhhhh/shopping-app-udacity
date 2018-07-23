@@ -11,6 +11,7 @@
 
 <view class='comments' wx:for='{{comments}}' wx:key='id' wx:if='{{comments.length>0}}'>
   <view class='comment-card'>
+  <view class='comment-top'>
     <image class='avatar' src='{{item.avatar}}'></image>
     <view class='comment-detail'>
       <view class='username'>{{item.username}}</view>
@@ -18,7 +19,10 @@
     </view>
 
     <view class='create-time'>{{item.createTime}}</view>
-  
+</view>
+    <view class='preview-list' wx:if='{{item.images.length}}'>
+        <image class='preview-item' wx:for='{{item.images}}' wx:for-item='pitem' wx:key='*this' src='{{pitem}}' bindtap='previewImg' data-src='{{pitem}}' data-urls='{{item.images}}'></image>
+    </view>
   </view>
 
 

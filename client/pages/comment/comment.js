@@ -11,6 +11,16 @@ Page({
     product: {},
     comments:[]
   },
+  previewImg(event) {
+    let target = event.currentTarget
+    let src = target.dataset.src
+    let urls = target.dataset.urls
+
+    wx.previewImage({
+      current: src,
+      urls: urls
+    })
+  },
   //获取评论详情
   getCommentList(id){
     wx.showLoading({
@@ -31,6 +41,7 @@ Page({
             comments: result.data.data.map(item=>{
                 let itemDate = new Date(item.create_time)
                 item.createTime = _.formatTime(itemDate)
+                item.images = item.images ? item.images.split(';;') : []
                 return item
             })
           })

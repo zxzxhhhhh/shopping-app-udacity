@@ -32,10 +32,14 @@ Page{
   font-weight: bold;
 }
 .comment-card{
-  display: flex;
   padding: 10rpx 30rpx;
   background: white;
   margin-bottom: 10rpx;
+}
+.comment-top{
+  display: flex;
+  font-size: 28rpx;
+  line-height: 39rpx;
 }
 .avatar{
   width: 80rpx;
@@ -50,12 +54,20 @@ Page{
   line-height: 35rpx;
   opacity: 0.6;
 }
-.comment-card{
-  font-size: 28rpx;
-  line-height: 39rpx;
-}
 .create-time{
   font-size: 25rpx;
   line-height: 35rpx;
   opacity: 0.6;
+}
+
+.preview-list {
+  display: flex;
+  margin-top: 16rpx;
+}
+
+.preview-item {
+  margin-right: 10rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
 }
