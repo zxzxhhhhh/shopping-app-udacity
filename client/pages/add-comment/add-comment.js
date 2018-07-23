@@ -19,15 +19,19 @@ Page({
   },
   //选择图像并上传
   chooseImage() {
+    let currentImages = this.data.commentImages
     wx.chooseImage({
       count: 3,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: res => {
-        let commentImages = res.tempFilePaths
+        currentImages = currentImages.concat(res.tempFilePaths)
+        let end = currentImages.length
+        let begin = Math.max(end - 3, 0)
+        currentImages = currentImages.slice(begin, end)
 
         this.setData({
-          commentImages
+          commentImages: currentImages
         })
       },
     })
@@ -39,10 +43,10 @@ Page({
 
     wx.previewImage({
       current: src,
-      urls: this.data.images
+      urls: this.data.commentImages
     })
   },
-
+  //上传所有文件，并返回所有图像的链接，用两个分号隔开不同图像之间的链接
   uploadImages(cb){
     let commentImages = this.data.commentImages
     let images = [] //存储上传后的返回的图片链接
